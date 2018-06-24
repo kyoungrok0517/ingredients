@@ -30,7 +30,9 @@ ingredients code for practicing python packaging
 Features
 --------
 
-* TODO
+* This text is added for practice.
+* Added to test `servedocs`.
+* Final test.
 
 Credits
 -------
