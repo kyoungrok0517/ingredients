@@ -11,20 +11,18 @@ from ingredients import ingredients
 from ingredients import cli
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
+def test_ingredients(capsys):
+    """We use the capsys argument to capture printing to stdout."""
+    # The ingredients function prints the results, but returns nothing.
+    assert ingredients.ingredients(10) == None
 
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+    # Capture the result of the ingredients.ingredients() function call.
+    captured = capsys.readouterr()
 
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+    # If we check captured, we can see that the ingredients have been printed.
+    assert "1.0 cups arepa flour" in captured.out
+    assert "1.0 cups cheese" in captured.out
+    assert "0.25 cups water" in captured.out
 
 
 def test_command_line_interface():
