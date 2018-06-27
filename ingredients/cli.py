@@ -3,16 +3,17 @@
 """Console script for ingredients."""
 import sys
 import click
+from ingredients.ingredients import ingredients
 
 
 @click.command()
-def main(args=None):
+@click.argument('count', type=int)
+def main(count):
     """Console script for ingredients."""
-    click.echo("Replace this message by putting your code into "
-               "ingredients.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
+    ingredients(count)
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+
+    sys.exit(main(0))  # pragma: no cover

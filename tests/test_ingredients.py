@@ -28,9 +28,9 @@ def test_ingredients(capsys):
 def test_command_line_interface():
     """Test the CLI."""
     runner = CliRunner()
-    result = runner.invoke(cli.main)
+    result = runner.invoke(cli.main, ['10'])
     assert result.exit_code == 0
-    assert 'ingredients.cli.main' in result.output
+    assert '1.0 cups arepa flour\n1.0 cups cheese\n0.25 cups water\n' in result.output
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
